@@ -17,10 +17,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.androidbeginning.ui.buttons.FilledButtonExample
 import com.example.androidbeginning.ui.buttons.FilledTonalButtonExample
 import com.example.androidbeginning.ui.buttons.OutlineButtonExample
 import com.example.androidbeginning.ui.buttons.TextButtonExample
+import com.example.androidbeginning.ui.textfields.OutlinedTextFieldExample
+import com.example.androidbeginning.ui.textfields.TextFieldExample
 import com.example.androidbeginning.ui.theme.AndroidBeginningTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,6 +38,8 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
+@Preview(showBackground = true)
 @Composable
 fun HomeScreen() {
     val snackBarHostState = remember {
@@ -47,14 +52,12 @@ fun HomeScreen() {
         modifier = Modifier.fillMaxSize()
     ) {
         Column(
-            modifier = Modifier.fillMaxSize().padding(it),
+            modifier = Modifier.fillMaxSize().padding(it).padding(16.dp),
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            FilledButtonExample()
-            FilledTonalButtonExample(snackBarHostState)
-            OutlineButtonExample()
-            TextButtonExample()
+            TextFieldExample()
+            OutlinedTextFieldExample()
         }
     }
 }
