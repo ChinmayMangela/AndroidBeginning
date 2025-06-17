@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.androidbeginning.projects.auth.screens.SignUpScreen
 import com.example.androidbeginning.ui.buttons.FilledButtonExample
 import com.example.androidbeginning.ui.buttons.FilledTonalButtonExample
 import com.example.androidbeginning.ui.buttons.OutlineButtonExample
@@ -51,13 +52,8 @@ fun HomeScreen() {
         },
         modifier = Modifier.fillMaxSize()
     ) {
-        Column(
+        SignUpScreen(
             modifier = Modifier.fillMaxSize().padding(it).padding(16.dp),
-            verticalArrangement = Arrangement.SpaceAround,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            TextFieldExample()
-            OutlinedTextFieldExample()
-        }
+        )
     }
 }
