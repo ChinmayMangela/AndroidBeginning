@@ -74,13 +74,21 @@ fun PasswordField() {
     var password by remember {
         mutableStateOf("")
     }
+    var showPassword by remember {
+        mutableStateOf(false)
+    }
+
     AuthTextField(
         textFieldValue = password,
         onValueChange = { it ->
             password = it
         },
         isPasswordField = true,
-        textFieldName = passwordField
+        textFieldName = passwordField,
+        showPassword = showPassword,
+        togglePasswordState = {
+            showPassword = !showPassword
+        }
     )
 }
 
@@ -89,13 +97,20 @@ fun ConfirmPasswordField() {
     var password by remember {
         mutableStateOf("")
     }
+    var showPassword by remember {
+        mutableStateOf(false)
+    }
     AuthTextField(
         textFieldValue = password,
         onValueChange = { it ->
             password = it
         },
         isPasswordField = true,
-        textFieldName = confirmPasswordField
+        textFieldName = confirmPasswordField,
+        showPassword = showPassword,
+        togglePasswordState = {
+            showPassword = !showPassword
+        }
     )
 }
 
