@@ -1,6 +1,6 @@
 package com.example.androidbeginning.projects.auth.components
-
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -23,7 +23,6 @@ import androidx.compose.ui.text.input.VisualTransformation
 import com.example.androidbeginning.projects.constants.emailField
 import com.example.androidbeginning.projects.constants.passwordField
 import com.example.androidbeginning.R
-import com.example.androidbeginning.ui.theme.Gray
 import com.example.androidbeginning.ui.theme.White
 
 @Composable
@@ -36,6 +35,7 @@ fun AuthTextField(
     togglePasswordState: () -> Unit = {}
 ) {
 
+    val isDarkTheme = isSystemInDarkTheme()
     val leadingIcon = @Composable {
         Icon(
             imageVector = if (isPasswordField) Icons.Default.Lock else Icons.Default.Email,
@@ -49,7 +49,9 @@ fun AuthTextField(
                 onClick = togglePasswordState
             ) {
                 Image(
-                    colorFilter = ColorFilter.tint(White),
+                    colorFilter = ColorFilter.tint(
+                        if(isDarkTheme) White else Color.Black
+                    ),
                     modifier = Modifier.size(20.dp),
                     painter = painterResource(id = if (showPassword) R.drawable.visibility_icon else R.drawable.visibility_off_icon),
                     contentDescription = if (showPassword) "Show Password" else "Hide Password"
