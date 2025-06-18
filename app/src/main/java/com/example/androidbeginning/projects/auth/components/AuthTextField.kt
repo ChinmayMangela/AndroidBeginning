@@ -76,7 +76,7 @@ fun AuthTextField(
         onValueChange = onValueChange,
         leadingIcon = leadingIcon,
         label = label,
-        visualTransformation = if (!showPassword) PasswordVisualTransformation() else VisualTransformation.None,
+        visualTransformation = if (isPasswordField && !showPassword) PasswordVisualTransformation() else VisualTransformation.None,
         shape = RoundedCornerShape(7.dp),
         singleLine = true,
         colors = TextFieldDefaults.colors(
